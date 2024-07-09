@@ -23,7 +23,7 @@ create_backup "$SSHD_CONFIG"
 # Set all configuration values in variables for easier modification and understanding
 
 # Unconventional port number for SSH
-SSH_PORT=1234
+SSH_PORT=${1:-6391}
 
 # Security settings
 PERMIT_ROOT_LOGIN="no"
@@ -54,8 +54,8 @@ CLIENT_ALIVE_COUNT_MAX=0
 ALLOW_GROUPS="sshusers"
 
 # Parameters for new user creation
-NEW_USER=${1:-sshuser}
-NEW_USER_PASSWORD=${2:-password}
+NEW_USER=${2:-sshuser}
+NEW_USER_PASSWORD=${3:-password}
 
 ALLOW_USERS="$NEW_USER@*"
 
